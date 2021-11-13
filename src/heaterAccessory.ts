@@ -1,4 +1,4 @@
-import { Service, PlatformAccessory, CharacteristicValue } from 'homebridge';
+import { Service, PlatformAccessory } from 'homebridge';
 import { ExampleHomebridgePlatform } from './platform';
 import http from 'http';
 import { JSDOM } from "jsdom";
@@ -13,15 +13,15 @@ export class ExampleHeaterCoolerAccessory {
 
     constructor(
         private readonly platform: ExampleHomebridgePlatform,
-        private readonly accessory: PlatformAccessory
-    ) {
+        private readonly accessory: PlatformAccessory ) {
         // create a new Heater Cooler service
         this.service = this.accessory.getService(this.platform.Service.AccessoryInformation)!
             .setCharacteristic(this.platform.Characteristic.Manufacturer, 'petaBits')
             .setCharacteristic(this.platform.Characteristic.Model, 'Smart EcoControl')
             .setCharacteristic(this.platform.Characteristic.SerialNumber, '1.0.0');
 
-        this.service = this.accessory.getService(this.platform.Service.HeaterCooler) || this.accessory.addService(this.platform.Service.HeaterCooler);
+        this.service = this.accessory.getService(this.platform.Service.HeaterCooler) || 
+        this.accessory.addService(this.platform.Service.HeaterCooler);
 
         // create handlers for required characteristics
         this.service.getCharacteristic(this.platform.Characteristic.Active)
@@ -65,11 +65,11 @@ export class ExampleHeaterCoolerAccessory {
         // set this to a valid value for Active
         switch (this.heaterStates.isOn) {
             case true:
-                return this.platform.Characteristic.Active.ACTIVE
+                return this.platform.Characteristic.Active.ACTIVE;
             case false:
-                return this.platform.Characteristic.Active.INACTIVE
+                return this.platform.Characteristic.Active.INACTIVE;
             default:
-                return this.platform.Characteristic.Active.INACTIVE
+                return this.platform.Characteristic.Active.INACTIVE;
         }
     }
 
