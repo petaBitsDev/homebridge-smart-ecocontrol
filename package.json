@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "private": false,
   "displayName": "Smart EcoControl",
   "name": "homebridge-smart-ecocontrol",
   "version": "1.0.0",
