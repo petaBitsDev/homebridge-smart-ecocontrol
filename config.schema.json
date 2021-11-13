@@ -1,0 +1,27 @@
+{
+  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginType": "platform",
+  "singular": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "required": true,
+        "default": "Smart EcoControl"
+      },
+      "ip": {
+        "title": "Ip adress oh the hub",
+        "type": "string",
+        "required": true
+      },
+      "polling": {
+        "title": "Interval of pulling data in millisecond",
+        "type": "number",
+        "required": true,
+        "default": 5000
+      }
+    }
+  }
+}
