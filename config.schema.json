@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "smart-ecocontrol",
   "pluginType": "platform",
   "singular": true,
   "schema": {
