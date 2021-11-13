@@ -134,7 +134,7 @@ export class ExampleHeaterCoolerAccessory {
     setTemperature(value) {
         this.platform.log.debug('Triggered SET HeatingThresholdTemperature');
 
-        let request = http.get("http://" + this.platform.config.ip + "/cgi/consigne_piece.cgi?newConsignePiece=" + (value as number * 10), (res) => {
+        const request = http.get("http://" + this.platform.config.ip + "/cgi/consigne_piece.cgi?newConsignePiece=" + (value as number * 10), (res) => {
             if (res.statusCode !== 200) {
                 this.platform.log.debug(`Did not get an OK from the server. Code: ${res.statusCode}`);
                 res.resume();
@@ -169,7 +169,7 @@ export class ExampleHeaterCoolerAccessory {
 
     getDataFromHeater() {
 
-        let request = http.get("http://" + this.platform.config.ip + "/xml/status-piece.xml", (res) => {
+        const request = http.get("http://" + this.platform.config.ip + "/xml/status-piece.xml", (res) => {
             if (res.statusCode !== 200) {
                 this.platform.log.debug(`Did not get an OK from the server. Code: ${res.statusCode}`);
                 res.resume();
